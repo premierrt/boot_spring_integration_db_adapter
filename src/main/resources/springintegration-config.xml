@@ -11,10 +11,26 @@
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
          http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
 
-	<integration:channel id="inboundChannel"></integration:channel>
-	<integration:channel id="canonicalChannel"></integration:channel>
+		<jdbc:embedded-database id="dataSource" type="HSQL">
+		</jdbc:embedded-database>
+	
 
 
+<bean depends-on="dataSource"
+	class="org.springframework.beans.factory.config.MethodInvokingBean">
+	<property name="targetClass" value="org.hsqldb.util.DatabaseManagerSwing" />
+	<property name="targetMethod" value="main" />
+	<property name="arguments">
+		<list>
+			<value>--url</value>
+			<value>jdbc:derby:memory:dataSource</value>
+			<value>--user</value>
+			<value>sa</value>
+			<value>--password</value>
+			<value></value>
+		</list>
+	</property>
+</bean>
 
 
 </beans>
