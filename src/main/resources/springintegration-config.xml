@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jms="http://www.springframework.org/schema/integration/jms"
-	xmlns:integration="http://www.springframework.org/schema/integration"
+	xmlns:int="http://www.springframework.org/schema/integration"
 	xmlns:task="http://www.springframework.org/schema/task"
-	xmlns:oxm="http://www.springframework.org/schema/oxm" xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xmlns:oxm="http://www.springframework.org/schema/oxm" 
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
        http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd
        http://www.springframework.org/schema/oxm  http://www.springframework.org/schema/oxm/spring-oxm.xsd       
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
-         http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
+         http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd
+          http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd">
 
-		<jdbc:embedded-database id="dataSource" type="HSQL">
-		</jdbc:embedded-database>
+ <int:channel id="baza"></int:channel>
+
+<int-jdbc:outbound-channel-adapter query="insert into usluga values (2,'test')"
+	data-source="dataSource"
+    channel="baza">
+</int-jdbc:outbound-channel-adapter>
+
+<int:gateway id="cssService" 
+			service-interface="rt.eureka.services.KomponentService"
+			default-request-channel="baza">
+</int:gateway>
+
 	
-
-
-<bean depends-on="dataSource"
-	class="org.springframework.beans.factory.config.MethodInvokingBean">
-	<property name="targetClass" value="org.hsqldb.util.DatabaseManagerSwing" />
-	<property name="targetMethod" value="main" />
-	<property name="arguments">
-		<list>
-			<value>--url</value>
-			<value>jdbc:derby:memory:dataSource</value>
-			<value>--user</value>
-			<value>sa</value>
-			<value>--password</value>
-			<value></value>
-		</list>
-	</property>
-</bean>
 
 
 </beans>

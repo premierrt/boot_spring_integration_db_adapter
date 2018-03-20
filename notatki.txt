@@ -45,13 +45,15 @@ https://spring.io/guides/gs/relational-data-access/
 -- adapter jdbc
 http://www.javarticles.com/2015/05/spring-integration-jdbc-inbound-adapter.html
 https://docs.spring.io/spring-integration/reference/html/jdbc.html
-
-
 https://stackoverflow.com/questions/28349222/spring-integration-outbound-channel-adapter-and-database-persistence
 
 
-
-
+--spring integration gateway
+https://springframework.guru/testing-spring-integration-gateways/
+http://www.javarticles.com/2015/05/spring-integration-gateway-example.html
+So is there a way we can decouple the application code from the messaging APIs? Gateway comes to our rescue. 
+It encapsulates access to the messaging system from the rest of the application
+A gateway can be used to eliminate this coupling by creating a façade layer that abstracts away the functionality of the messaging system into a discrete interface.
 
 to_do:
 -jpa
