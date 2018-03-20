@@ -9,7 +9,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import rt.eureka.services.KomponentService;
+import rt.eureka.services.KomponentGateway;
 
 @RunWith(SpringRunner.class)
 @JdbcTest
@@ -17,7 +17,7 @@ public class GatewayTest {
 
 	
 	@Autowired
-	KomponentService cssService;
+	KomponentGateway cssService;
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;

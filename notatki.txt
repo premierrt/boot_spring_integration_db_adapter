@@ -13,10 +13,13 @@ mvn test
 mvn package -- buduje jara do katalogu target
 mvn -Dmaven.test.skip=true package - pomija testy -jak nie pominie to wysypuje sie na testach i nie zbuduje paczki
 
-/home/rafal/Pobrane/apache-activemq-5.15.2/bin/activemq start
-http://127.0.0.1:8161/admin/index.jsp
-dodać kolejkę recznie zeby testow
 -------------------------------------------
+
+
+to_do:
+-rest api - demo
+-jpa
+
 
 
 --xsd jaxb generowanie
@@ -54,7 +57,9 @@ http://www.javarticles.com/2015/05/spring-integration-gateway-example.html
 So is there a way we can decouple the application code from the messaging APIs? Gateway comes to our rescue. 
 It encapsulates access to the messaging system from the rest of the application
 A gateway can be used to eliminate this coupling by creating a façade layer that abstracts away the functionality of the messaging system into a discrete interface.
+Notice in the above code, I never provided a concrete implementation of the Gateway interface. This is something that Spring Integration will do for you at run time. 
+Once I have the ProductGateway  from the Spring context
 
-to_do:
--jpa
 
+--spring
+https://www.petrikainulainen.net/software-development/design/why-i-changed-my-mind-about-field-injection/

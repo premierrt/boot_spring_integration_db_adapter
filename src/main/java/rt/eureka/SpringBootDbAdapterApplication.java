@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 
-import rt.eureka.services.KomponentService;
+import rt.eureka.services.KomponentGateway;
 
 @SpringBootApplication
 @ImportResource({"classpath:springintegration-config.xml"})
