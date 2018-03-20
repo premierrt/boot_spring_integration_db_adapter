@@ -61,5 +61,9 @@ Notice in the above code, I never provided a concrete implementation of the Gate
 Once I have the ProductGateway  from the Spring context
 
 
---spring
+--spring DI
 https://www.petrikainulainen.net/software-development/design/why-i-changed-my-mind-about-field-injection/
+
+--rest
+http://www.baeldung.com/building-a-restful-web-service-with-spring-and-java-based-configuration
+https://spring.io/guides/gs/rest-service/

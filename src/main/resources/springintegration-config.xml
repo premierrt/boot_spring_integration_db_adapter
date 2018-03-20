@@ -22,7 +22,7 @@ xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
 </int-jdbc:outbound-channel-adapter>
 
 <int:gateway id="cssService" 
-			service-interface="rt.eureka.services.KomponentService"
+			service-interface="rt.eureka.services.KomponentGateway"
 			default-request-channel="baza">
 </int:gateway>
 
