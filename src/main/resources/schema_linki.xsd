@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://rafal/types" targetNamespace="http://rafal/types"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	version="1.1.0">
+
+<xsd:element name="uslugiLinki" type="uslugiLinkiType"/>
+
+
+	<xsd:simpleType name="idType">
+		<xsd:restriction base="xsd:long" />
+	</xsd:simpleType>
+	
+	
+
+	<xsd:complexType name="uslugiLinkiType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" maxOccurs="unbounded"
+				name="uslugiLinki" type="uslugaLinkiType" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="uslugaLinkiType">
+		<xsd:sequence>
+			<xsd:element name="powiazanie" type="powiazanie"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="uslugaId" type="idType" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="powiazanie">
+		<xsd:sequence>
+			<xsd:element name="relacjaPowiazania" type="relacjaPowiazania"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="statusFailedMessage" type="xsd:string"
+			use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="relacjaPowiazania">
+		<xsd:attribute name="uslugaId" type="idType" use="required" />
+		<xsd:attribute name="status" type="xsd:string" use="required" />
+		<xsd:attribute name="operacja" type="operacjeType"></xsd:attribute>
+		<xsd:attribute name="badel" type="xsd:boolean" use="required" />
+	</xsd:complexType>
+
+	<xsd:simpleType name="operacjeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AKTWYUJ"></xsd:enumeration>
+			<xsd:enumeration value="DEAKTWYUJ"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="statusType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AKTYWNY"></xsd:enumeration>
+			<xsd:enumeration value="NIEAKTYWNY"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

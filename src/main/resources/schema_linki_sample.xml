@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:uslugiLinki xmlns:p="http://rafal/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://rafal/types schema_linki.xsd ">
+  
+  
+  <p:uslugiLinki uslugaId="10">
+    <p:powiazanie statusFailedMessage="To jest zle powiazanie">
+      <p:relacjaPowiazania badel="true"  status="AKTYWNY" uslugaId="20"/>
+      <p:relacjaPowiazania badel="true"  status="AKTYWNY" uslugaId="30"/>
+       <p:relacjaPowiazania badel="true" status="AKTYWNY" uslugaId="40"/>
+    </p:powiazanie>
+  </p:uslugiLinki>
+  
+  
+    <p:uslugiLinki uslugaId="210">
+    <p:powiazanie statusFailedMessage="To jest zle powiazanie 222 ">
+      <p:relacjaPowiazania badel="true"  status="NIEAKTYWNY" uslugaId="220"/>
+      <p:relacjaPowiazania badel="true"  status="AKTYWNY" uslugaId="230"/>
+       <p:relacjaPowiazania badel="true"  status="AKTYWNY" uslugaId="240"/>
+    </p:powiazanie>
+  </p:uslugiLinki>
+  
+  
+    <p:uslugiLinki uslugaId="310">
+    <p:powiazanie statusFailedMessage="To jest zle powiazanie 3333">
+      <p:relacjaPowiazania badel="true" operacja="DEAKTWYUJ" status="AKTYWNY" uslugaId="320"/>
+      <p:relacjaPowiazania badel="true" operacja="DEAKTWYUJ" status="NIEAKTYWNY" uslugaId="330"/>
+       <p:relacjaPowiazania badel="true" operacja="DEAKTWYUJ" status="AKTYWNY" uslugaId="340"/>
+    </p:powiazanie>
+  </p:uslugiLinki>
+  
+</p:uslugiLinki>
