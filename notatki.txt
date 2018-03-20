@@ -21,3 +21,9 @@ mvn -Dmaven.test.skip=true package - pomija testy -jak nie pominie to wysypuje s
 http://127.0.0.1:8161/admin/index.jsp
 dodać kolejkę recznie zeby testow
 -------------------------------------------
+
+
+--xsd jaxb generowanie
+http://www.mojohaus.org/jaxb2-maven-plugin/Documentation/v2.2/example_xjc_basic.html
+https://memorynotfound.com/generate-java-classes-from-xsd/
+https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Plugins
