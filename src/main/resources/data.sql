@@ -1,0 +1,1 @@
+insert into usluga values (1, 'nazwa uslugi');
