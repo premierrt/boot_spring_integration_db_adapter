@@ -14,17 +14,27 @@ xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
          http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd
           http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd">
 
- <int:channel id="baza"></int:channel>
 
-<int-jdbc:outbound-channel-adapter query="insert into usluga values (2,'test')"
-	data-source="dataSource"
-    channel="baza">
-</int-jdbc:outbound-channel-adapter>
+<!-- 
+gateway - interfejs z metodą z paremtrem String.
+Ten string trafia do kanału baza. W payload message jest obiekty typu String. 
+Do bazy zapisujemy payload, czyli tego Stringa
 
+ -->
 <int:gateway id="cssService" 
 			service-interface="rt.eureka.services.KomponentGateway"
 			default-request-channel="baza">
 </int:gateway>
+
+
+ <int:channel id="baza"></int:channel>
+
+<int-jdbc:outbound-channel-adapter query="insert into usluga(name) values (:payload)"
+	data-source="dataSource"
+    channel="baza">
+</int-jdbc:outbound-channel-adapter>
+
+
 
 	
 
