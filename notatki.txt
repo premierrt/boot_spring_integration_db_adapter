@@ -17,7 +17,10 @@ mvn -Dmaven.test.skip=true package - pomija testy -jak nie pominie to wysypuje s
 
 
 to_do:
+-- wczytany jest plik i transformer file-to-string. uzyc jego, albo file-to-byte i dopisac transfrmater - unamrshaller i zapis do bazy
 -rest api - demo
+-rest api - każda metoda zeby zwracala response json. teraz POST nic nie zwraca.
+-dodac si. splitter i kazda linie osobno przetwarzac
 -spring security 
 https://kobietydokodu.pl/16-zabezpieczanie-aplikacji-z-uzyciem-spring-security/
 http://www.baeldung.com/securing-a-restful-web-service-with-spring-security
@@ -77,9 +80,19 @@ Notice in the above code, I never provided a concrete implementation of the Gate
 Once I have the ProductGateway  from the Spring context
 
 
+--spring integration file channel
+http://www.javarticles.com/2015/05/spring-integration-file-adapter-example.html
+https://github.com/michaelisvy/spring-integration-samples/blob/master/src/main/java/example3/file-channel-adapter-transformer-config.xml
+
+
 --spring integration payload message
 - payload to dowolny obiekt
 https://dzone.com/articles/message-processing-spring
+--message:
+	
+Message: is a data structure that will have payload and the header. The payload can be a file, String, JMS message … 
+The header is a key-value map that contains some properties that will be used by the framework or user values.
+https://samerabdelkafi.wordpress.com/2011/08/01/spring-integration/
 
 --spring DI
 https://www.petrikainulainen.net/software-development/design/why-i-changed-my-mind-about-field-injection/

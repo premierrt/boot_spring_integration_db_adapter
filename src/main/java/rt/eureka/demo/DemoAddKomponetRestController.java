@@ -16,6 +16,10 @@ public class DemoAddKomponetRestController {
 	@Autowired
 	private DemoKomponentyService demoKomponentyService;
 
+	/**
+	 * dodac zeby zwracalo kod bledu 
+	 * @param name
+	 */
 	@RequestMapping(method=RequestMethod.POST)
 	public void addKomponent(String name){
 		log.info("jedzie addKomponent" );

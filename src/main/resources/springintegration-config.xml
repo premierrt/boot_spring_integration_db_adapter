@@ -5,6 +5,7 @@
 	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:oxm="http://www.springframework.org/schema/oxm" 
 	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
 xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
@@ -12,7 +13,8 @@ xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
        http://www.springframework.org/schema/oxm  http://www.springframework.org/schema/oxm/spring-oxm.xsd       
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
          http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd
-          http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd">
+          http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd
+          http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd">
 
 
 <!-- 
@@ -35,6 +37,24 @@ Do bazy zapisujemy payload, czyli tego Stringa
 </int-jdbc:outbound-channel-adapter>
 
 
+
+<!-- file input channel - wrzuca do channella messgage z payloadem typu file-->
+<!-- The file inbound channel inspect every 5 second the input folder. If a new file is present a message with a payload of type file will be created and sent to the service activator.
+ -->
+ <file:inbound-channel-adapter directory="${rt.dir}" id="fileIn">
+         <int:poller id="poller" fixed-delay="500"/>
+ 
+ </file:inbound-channel-adapter>
+ 
+ 
+ <file:file-to-string-transformer id="fileToStringTransformer" input-channel="fileIn"  output-channel="fileAsString"/>
+ 
+ 
+ <int:service-activator id="fileToString" input-channel="fileAsString" ref="fileToStringService" method="processFile">
+ 
+ </int:service-activator>
+ 
+ <!-- do jaxb wziac byte? -->
 
 	
 
