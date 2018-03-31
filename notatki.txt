@@ -1,4 +1,13 @@
+doczytac 
+https://blog.trifork.com/2010/01/13/migrating-content-with-spring-integration-a-real-life-example/ 
+i dodac router, transformer, xpath
 
+
+
+na podstaiwe:
+https://samerabdelkafi.wordpress.com/2011/08/01/spring-integration/
+https://blog.trifork.com/2010/01/13/migrating-content-with-spring-integration-a-real-life-example/
+https://docs.spring.io/spring-integration/docs/2.0.0.RC1/reference/html/xml.html
 
 
 _______________________________
@@ -18,6 +27,13 @@ mvn -Dmaven.test.skip=true package - pomija testy -jak nie pominie to wysypuje s
 
 to_do:
 -- wczytany jest plik i transformer file-to-string. uzyc jego, albo file-to-byte i dopisac transfrmater - unamrshaller i zapis do bazy
+https://docs.spring.io/spring-integration/docs/2.0.0.RC1/reference/html/xml.html
+<si-xml:unmarshalling-transformer id="defaultUnmarshaller"
+    input-channel="input"
+    output-channel="output"
+  https://blog.trifork.com/2010/01/13/migrating-content-with-spring-integration-a-real-life-example/  unmarshaller="unmarshaller"/>
+
+
 -rest api - demo
 -rest api - każda metoda zeby zwracala response json. teraz POST nic nie zwraca.
 -dodac si. splitter i kazda linie osobno przetwarzac

@@ -6,7 +6,8 @@
 	xmlns:oxm="http://www.springframework.org/schema/oxm" 
 	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
 	xmlns:file="http://www.springframework.org/schema/integration/file"
-xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
+	xmlns:si-xml="http://www.springframework.org/schema/integration/xml"	
+	xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
        http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd
@@ -14,7 +15,9 @@ xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
          http://www.springframework.org/schema/integration/ws http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd
           http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd
-          http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd">
+          http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+          http://www.springframework.org/schema/integration/xml http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd
+          ">
 
 
 <!-- 
@@ -53,10 +56,12 @@ Do bazy zapisujemy payload, czyli tego Stringa
  <int:service-activator id="fileToString" input-channel="fileAsString" ref="fileToStringService" method="processFile">
  
  </int:service-activator>
- 
- <!-- do jaxb wziac byte? -->
 
-	
+<!-- to_do   
+<si-xml:unmarshalling-transformer unmarshaller="">
+
+</si-xml:unmarshalling-transformer>
+	--> 
 
 
 </beans>
