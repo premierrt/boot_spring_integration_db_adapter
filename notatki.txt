@@ -34,6 +34,8 @@ https://docs.spring.io/spring-integration/docs/2.0.0.RC1/reference/html/xml.html
   https://blog.trifork.com/2010/01/13/migrating-content-with-spring-integration-a-real-life-example/  unmarshaller="unmarshaller"/>
 
 
+--dodac jpa
+
 -rest api - demo
 -rest api - każda metoda zeby zwracala response json. teraz POST nic nie zwraca.
 -dodac si. splitter i kazda linie osobno przetwarzac
@@ -116,3 +118,11 @@ https://www.petrikainulainen.net/software-development/design/why-i-changed-my-mi
 --rest
 http://www.baeldung.com/building-a-restful-web-service-with-spring-and-java-based-configuration
 https://spring.io/guides/gs/rest-service/
+
+
+
+--JPA , Spring Data
+https://www.mkyong.com/spring-boot/spring-boot-spring-data-jpa-oracle-example/
+https://docs.spring.io/spring-data/data-commons/docs/current/reference/html/#repositories
+https://kobietydokodu.pl/14-spring-data/
+http://blog.mloza.pl/spring-boot-interakcja-z-baza-danych-czyli-spring-data-jpa/

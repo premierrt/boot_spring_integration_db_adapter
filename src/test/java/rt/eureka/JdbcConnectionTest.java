@@ -9,16 +9,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.fasterxml.jackson.annotation.JsonFormat.Value;
 
 @RunWith(SpringRunner.class)
-@JdbcTest
+@SpringBootTest
+//@JdbcTest
 public class JdbcConnectionTest {
 	
 	private static Log log = LogFactory.getLog(JdbcConnectionTest.class);
+	private static String expectedNazwaUslugi = "usluga glowna1";
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -28,7 +31,7 @@ public class JdbcConnectionTest {
 		log.info("**************************** testy ");
 		int result = jdbcTemplate.queryForObject(
 			    "SELECT COUNT(*) FROM USLUGA", Integer.class);		
-		assertEquals(result, 1);
+		assertEquals(result, 2);
 	}
 	
 	@Test
@@ -36,7 +39,7 @@ public class JdbcConnectionTest {
 		log.info("**************************** testy ");
 		String result = jdbcTemplate.queryForObject(
 			    "SELECT NAME FROM USLUGA WHERE id=?", new Object[]{1}, String.class);		
-		assertEquals(result, "nazwa uslugi");
+		assertThat(result).isEqualTo(expectedNazwaUslugi);
 	}
 
 }
