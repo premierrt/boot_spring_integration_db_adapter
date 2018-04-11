@@ -53,6 +53,9 @@ Do bazy zapisujemy payload, czyli tego Stringa
  <file:file-to-string-transformer id="fileToStringTransformer" input-channel="fileIn"  output-channel="fileAsString"/>
  
  
+ <!-- deklaruje tutaj, zeby dzialaly testy jpa, ktore nie wczytują @Service i sypią noSuchBeanException -->
+ <bean id="fileToStringService" class="rt.eureka.services.FileToStringService"></bean>
+ 
  <int:service-activator id="fileToString" input-channel="fileAsString" ref="fileToStringService" method="processFile">
  
  </int:service-activator>

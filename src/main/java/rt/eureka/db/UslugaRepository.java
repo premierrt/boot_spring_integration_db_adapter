@@ -8,4 +8,6 @@ public interface UslugaRepository extends CrudRepository<Usluga, Integer>{
 
 	
 	public List<Usluga> findAll();
+	
+	public Usluga findById(int Id);
 }
